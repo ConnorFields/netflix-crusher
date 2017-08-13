@@ -9,4 +9,11 @@
     </div>
   </div>
   <i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true" (click)="navigateRight()" [ngClass]="{ 'disabled-arrow': rightArrowDisabled }"></i>
+
+  <ng-container *ngIf="selectedVideo">
+    <video-player [mediaSource]="selectedVideo.contents[0].url"></video-player>
+  </ng-container>
+
+  <media-description></media-description>
 </ng-container>
+

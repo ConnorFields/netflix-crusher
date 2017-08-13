@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-media-description',
+  selector: 'media-description',
   templateUrl: './media-description.component.html',
   styleUrls: ['./media-description.component.css']
 })

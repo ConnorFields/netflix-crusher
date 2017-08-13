@@ -16,6 +16,7 @@ constructor(private _service: VideoImporterService) { }
 //Global Variables
 videoList: any[];
 offset: number = 0;
+selectedVideo: any;
 
 getItemPosition(index: number) {
   let width: number = 300;
@@ -23,6 +24,7 @@ getItemPosition(index: number) {
 }
 
 setSelectedVideo(selectedVideo:any){
+  this.selectedVideo = selectedVideo;
   for(let video of this.videoList){
     video.isSelected = false;
   }

@@ -7,13 +7,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HistoryComponent } from './history/history.component';
-import { ViewComponent } from './view/view.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MediaDescriptionComponent } from './media-description/media-description.component';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 //Application Imports
 import { VideoImporterService } from './video-importer.service';
-import { MediaDescriptionComponent } from './media-description/media-description.component';
-import { VideoPlayerComponent } from './video-player/video-player.component';
 
 const appRoutes: Routes = [
   { 
@@ -24,10 +23,6 @@ const appRoutes: Routes = [
   { 
     path: 'history',      
     component: HistoryComponent 
-  },
-  {
-    path: 'view/:videoId',
-    component: ViewComponent
   },
   { 
     path: '',
@@ -45,9 +40,7 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     HistoryComponent,
-    ViewComponent,
     PageNotFoundComponent,
-    ViewComponent,
     MediaDescriptionComponent,
     VideoPlayerComponent
   ],
