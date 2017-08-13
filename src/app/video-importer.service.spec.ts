@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+ng ngimport { TestBed, inject } from '@angular/core/testing';
 
 import { VideoImporterService } from './video-importer.service';
 
