@@ -1,0 +1,12 @@
+<ng-container *ngIf="!isLoading">
+  <i class="fa fa-arrow-circle-left fa-3x" aria-hidden="true" (click)="navigateLeft()" [ngClass]="{ 'disabled-arrow': leftArrowDisabled }"></i>
+  <div class="item-container">
+    <div class="item" *ngFor="let video of videoList; let i = index" 
+    [style.left]="getItemPosition(i)"    
+    (click)="setSelectedVideo(video)">
+      <h4>{{video.title}}</h4>
+      <img [src]="video.images[0].url" [ngClass]="{ 'is-selected': video.isSelected }">
+    </div>
+  </div>
+  <i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true" (click)="navigateRight()" [ngClass]="{ 'disabled-arrow': rightArrowDisabled }"></i>
+</ng-container>
