@@ -9,6 +9,7 @@ export class VideoPlayerComponent implements OnInit {
 
   constructor() { }
 
+  //Variable Decorators
   @Input() mediaSource: string;
 
   ngOnInit() {
