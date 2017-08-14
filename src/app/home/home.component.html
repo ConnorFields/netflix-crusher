@@ -9,9 +9,9 @@
     </div>
   </div>
   <i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true" (click)="navigateRight()" [ngClass]="{ 'disabled-arrow': rightArrowDisabled }"></i>
-  <pre>{{selectedVideo | json}}</pre>
+  <!--<pre>{{selectedVideo | json}}</pre>-->
   <ng-container *ngIf="selectedVideo">
-  <video-details [selectedVideo]="[videoDescription, videoTitle]"></media-description>    
+  <video-details [mediaSource]="selectedVideo"></video-details>    
   </ng-container>
 </ng-container>
 

@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 //Service Import
 import { VideoImporterService } from '../video-importer.service';
 
+//Model import
+import { Video } from '../data-source.model';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,9 +17,9 @@ export class HomeComponent implements OnInit {
 constructor(private _service: VideoImporterService) { }
 
 //Global Variables
-videoList: any[];
+videoList: Video[];
 offset: number = 0;
-selectedVideo: any;
+selectedVideo: Video;
 
 getItemPosition(index: number) {
   let width: number = 300;
@@ -29,10 +32,6 @@ setSelectedVideo(selectedVideo:any){
     video.isSelected = false;
   }
   selectedVideo.isSelected = true;
-}
-
-onKey(event:any){
-  console.log(event.target.value);
 }
 
 navigateRight() {
@@ -64,7 +63,27 @@ ngOnInit() {
       data => this.videoList = data.entries
     );
 
-    document.onkeydown = this.onKey;
-
-  } 
+    document.addEventListener('keydown', (ev:KeyboardEvent) => {
+      let indexOfSelected = 0;
+      if(this.selectedVideo == undefined) {
+        this.selectedVideo = this.videoList[0];
+      }
+      switch(ev.keyCode){
+        case 39://Right Arrow
+          this.navigateRight();
+          indexOfSelected = this.videoList.indexOf(this.selectedVideo);
+          if(indexOfSelected < (this.videoList.length-1) ){
+            this.setSelectedVideo(this.videoList[indexOfSelected + 1]);
+          }
+        break;
+        case 37://Left Arrow
+          this.navigateLeft();
+          indexOfSelected = this.videoList.indexOf(this.selectedVideo);
+          if(indexOfSelected > 0){
+            this.setSelectedVideo(this.videoList[indexOfSelected - 1]);
+          }
+        break;
+      }
+    });
+  }
 }

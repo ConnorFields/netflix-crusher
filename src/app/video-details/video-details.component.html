@@ -1,6 +1,15 @@
 <ng-container>
-  <!--<h2>{{title}}</h2>
-  <h3>{{description}}</h3>-->
-  <h2>Title</h2>
-  <h3>This is a description</h3>
+  <h2>{{_mediaSource.title}}</h2>
+  <h3>{{_mediaSource.description}}</h3>
+</ng-container>
+
+<video id="video" *ngIf="_mediaSource" width="320" height="240" controls>
+  <ng-container *ngFor="let video of _mediaSource.contents">
+    <source [src]="video.url" type="video/mp4">
+  </ng-container>
+  <!--<source src="movie.ogg" type="video/ogg">-->
+Your browser does not support the video tag.
+</video>
+<ng-container *ngIf="!_mediaSource">
+  <h3>Video Not Found</h3>
 </ng-container>
