@@ -21,6 +21,8 @@ export class VideoDetailsComponent implements OnInit, AfterViewInit {
 
   videoPlayerRef: any;
 
+  historyList: Video[];
+
   //Variable Decorators
   @Input() set mediaSource(value: Video) { 
     this._mediaSource = value;
@@ -28,11 +30,12 @@ export class VideoDetailsComponent implements OnInit, AfterViewInit {
       this.videoPlayerRef.load();
       this.videoPlayerRef.play();
       this._service.addToHistory(this._mediaSource);
-      let historyList = this._service.listHistory();
     }
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.historyList = this._service.listHistory();
+   }
 
   //To allow for each video to be played upon click
   ngAfterViewInit() {

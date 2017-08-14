@@ -41,4 +41,4 @@ To get more help on the `angular-cli` use `ng help` or go check out the [Angular
 
 ## Known Bugs
 
-1) When item (video) selected, item title covered by image
+1) When item (video) selected, item title is not very clear against contrasting images

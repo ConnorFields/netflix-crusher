@@ -17,6 +17,7 @@ video {
     width:          100%;
     display:        -webkit-inline-box;
     padding:        10px 20px 10px 20px;
+    max-height:     160px;
 }
 
 .video-container {
@@ -29,6 +30,8 @@ video {
 .right-panel {
     width:       50%;
     padding-top: 10px;
+    height:      160px;
+    overflow-y:  scroll;
 }
 
 .left-panel {
