@@ -28,3 +28,17 @@ Run `ng github-pages:deploy` to deploy to GitHub Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Requirements fullfilled
+
+1) Load from API
+2) play in full screen
+3) Navigate via mouse and keyboard
+4) Layout Size adjustment
+5) Error Handling
+6) unit tests (via jasmine)
+7) recorded history
+
+## Known Bugs
+
+1) When item (video) selected, item title covered by image
