@@ -7,9 +7,9 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class VideoImporterService {
 
-  constructor(private _http: Http) { 
-  }
+  constructor(private _http: Http) { }
 
+  //Standard Get request with catch
   public getVideoList(): Observable<any>{
 
     let videoUrl: string = 'https://demo2697834.mockable.io/movies';

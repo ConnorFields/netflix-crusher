@@ -6,23 +6,18 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { HistoryComponent } from './history/history.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { VideoDetailsComponent } from './video-details/video-details.component';
-import { VideoPlayerComponent } from './video-player/video-player.component';
 
 //Application Imports
 import { VideoImporterService } from './video-importer.service';
+import { VideoHistoryService } from './video-history.service';
 
 const appRoutes: Routes = [
   { 
     path: 'home', 
     component: HomeComponent,
     data: { title: 'Netflix Crusher' }
-  },
-  { 
-    path: 'history',      
-    component: HistoryComponent 
   },
   { 
     path: '',
@@ -39,10 +34,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    HistoryComponent,
     PageNotFoundComponent,
-    VideoDetailsComponent,
-    VideoPlayerComponent
+    VideoDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +43,12 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot( appRoutes )
   ],
-  providers: [VideoImporterService],
+  providers: 
+  [
+    VideoImporterService,
+    VideoHistoryService
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

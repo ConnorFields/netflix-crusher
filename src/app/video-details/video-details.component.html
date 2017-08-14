@@ -1,15 +1,26 @@
-<ng-container>
-  <h2>{{_mediaSource.title}}</h2>
-  <h3>{{_mediaSource.description}}</h3>
+<!--Only add to DOM if request successful (_mediaSource populated with video data)-->
+<ng-container *ngIf="_mediaSource">
+  <div class="details-container">
+    <div class="left-panel">
+      <h3>{{_mediaSource.title}}</h3>
+      <h4>{{_mediaSource.description}}</h4>
+    </div>
+    <div class="right-panel">    
+      <h3>History</h3>
+      <h4>{{historyList}}</h4>
+    </div>
+  </div>
+  <div class="video-container">
+    <video id="video" *ngIf="_mediaSource" controls>
+      <ng-container *ngFor="let video of _mediaSource.contents">
+        <source [src]="video.url" type="video/mp4">
+      </ng-container>
+      Your browser does not support the video tag.
+    </video>
+  </div>
 </ng-container>
 
-<video id="video" *ngIf="_mediaSource" width="320" height="240" controls>
-  <ng-container *ngFor="let video of _mediaSource.contents">
-    <source [src]="video.url" type="video/mp4">
-  </ng-container>
-  <!--<source src="movie.ogg" type="video/ogg">-->
-Your browser does not support the video tag.
-</video>
+<!--If request not successful-->
 <ng-container *ngIf="!_mediaSource">
   <h3>Video Not Found</h3>
 </ng-container>

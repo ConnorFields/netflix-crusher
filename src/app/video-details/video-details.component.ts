@@ -3,6 +3,9 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 //Model import
 import { Video } from '../data-source.model';
 
+//Service import
+import { VideoHistoryService } from '../video-history.service';
+
 @Component({
   selector: 'video-details',
   templateUrl: './video-details.component.html',
@@ -11,12 +14,12 @@ import { Video } from '../data-source.model';
 
 export class VideoDetailsComponent implements OnInit, AfterViewInit {
 
-  videoPlayerRef: any;
+  constructor(private _service: VideoHistoryService) { }
 
-  constructor() { 
-  }
-
+  //Data Model
   _mediaSource: Video;
+
+  videoPlayerRef: any;
 
   //Variable Decorators
   @Input() set mediaSource(value: Video) { 
@@ -24,14 +27,15 @@ export class VideoDetailsComponent implements OnInit, AfterViewInit {
     if(this.videoPlayerRef != undefined){
       this.videoPlayerRef.load();
       this.videoPlayerRef.play();
+      this._service.addToHistory(this._mediaSource);
+      let historyList = this._service.listHistory();
     }
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+  //To allow for each video to be played upon click
   ngAfterViewInit() {
     this.videoPlayerRef = document.getElementById('video');
   }
-
 }
